@@ -2,11 +2,13 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 40px;
+  display: block;
 }
 
 .carousel-item {
   padding: 20px;
   text-align: center;
+  display: inline-block;
 }
 
 .carousel-item img {
@@ -15,6 +17,7 @@
   object-fit: cover;
   border-radius: 8px;
   transition: transform 0.3s;
+  display: block;
 }
 
 .carousel-item:hover img {
