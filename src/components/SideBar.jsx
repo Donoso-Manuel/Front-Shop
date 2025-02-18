@@ -22,7 +22,6 @@ function Sidebar({ collapsed, setCollapsed }) {
         <Link
           to="/home"
           onClick={(e) => {
-            e.preventDefault();
             // onCategorySelect("tienda");
           }}
           className="sidebar-item"
