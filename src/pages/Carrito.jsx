@@ -4,6 +4,7 @@ import { useCart } from "../context/CartContext";
 import CompraPopup from "../components/CompraPopup";
 import "../styles/Carrito.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 import {
   faMinusCircle,
   faPlusCircle,
@@ -11,6 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Carrito() {
+  const navigate = useNavigate();
   const {
     carrito,
     actualizarCantidad,
@@ -38,6 +40,7 @@ function Carrito() {
 
   const handleFinalizarCompra = () => {
     finalizarCompra();
+    navigate("/mis-compras");
   };
 
   const handleEliminar = (productoId) => {
