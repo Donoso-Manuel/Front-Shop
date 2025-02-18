@@ -63,7 +63,12 @@ function MisCompras() {
             <div className="compras-grid">
               {comprasActuales.map((compra, index) => (
                 <div key={index} className="compra-card">
-                  <h3>Compra realizada el {compra.purchase_date}</h3>
+                  <h3>Compra realizada el {" "}         
+                    {new Date(compra.purchase_date).toLocaleDateString("es-ES", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    })}</h3>
                   <p>Total: ${compra.purchase_total.toLocaleString()}</p>
                   <div className="producto-info">
                     <p>Producto: {compra.name}</p>
