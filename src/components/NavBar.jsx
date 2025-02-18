@@ -212,6 +212,8 @@ function NavBar() {
       const response = await axios.post("/api/logout");
       console.log("Respuesta del logout:", response.data);
 
+      document.cookie = "userToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+      
       if (response.status === 200) {
         localStorage.clear();
         setIsAuthenticated(false);
