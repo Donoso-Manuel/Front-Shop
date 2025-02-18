@@ -2,6 +2,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import axios from "../config/axios";
+import { useNavigate } from "react-router-dom";
 
 const CartContext = createContext();
 
@@ -145,6 +146,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const finalizarCompra = async () => {
+    const navigate = useNavigate();
     try {
       if (Object.keys(carrito).length === 0) {
         setMensajePopup({ tipo: "error", mensaje: "El carrito está vacío" });
@@ -198,7 +200,7 @@ export const CartProvider = ({ children }) => {
         localStorage.removeItem("carrito");
         setShowPopup(true);
         setTimeout(() => {
-          window.location.href = "/mis-compras";
+          navigate("/mis-compras");
         }, 2000);
       }
     } catch (error) {
