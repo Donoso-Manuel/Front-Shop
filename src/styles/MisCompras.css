@@ -1,0 +1,146 @@
+.mis-compras-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.mis-compras-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: var(--text-color);
+}
+
+.compras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.compra-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.compra-card:hover {
+  transform: translateY(-5px);
+}
+
+.compra-card h3 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.compra-card p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.productos-list {
+  list-style: none;
+  padding: 0;
+}
+
+.productos-list li {
+  font-size: 1em;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.productos-list li:last-child {
+  border-bottom: none;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.pagination-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 15px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: var(--primary-color);
+}
+
+.pagination-btn.active {
+  background: var(--primary-color);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Mensaje vacío */
+.empty-message {
+  text-align: center;
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 12px;
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .mis-compras-title {
+    font-size: 1.8em;
+  }
+
+  .compras-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .compra-card h3 {
+    font-size: 1.3em;
+  }
+
+  .compra-card p {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .mis-compras-container {
+    padding: 20px 10px;
+  }
+
+  .mis-compras-title {
+    font-size: 1.6em;
+  }
+
+  .compras-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .compra-card {
+    padding: 15px;
+  }
+
+  .compra-card h3 {
+    font-size: 1.2em;
+  }
+
+  .compra-card p {
+    font-size: 1em;
+  }
+}

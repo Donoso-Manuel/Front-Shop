@@ -1,0 +1,185 @@
+/* Estilos para la barra lateral */
+.sidebar {
+  width: 200px;
+  min-height: calc(100vh - 100px); /* Altura mínima */
+  height: 100%; /* Para que se expanda si el contenido es mayor */
+  background: linear-gradient(
+    380deg,
+    #b65514b7 0%,
+    var(--background-color) 80%
+  );
+  position: fixed;
+  top: 100px;
+  left: 0;
+  bottom: 0; /* Asegura que llegue hasta abajo */
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  z-index: 999;
+  overflow-y: hidden; /* Quitar el scroll */
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.sidebar.collapsed {
+  width: 60px;
+  padding: 20px 10px;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 2.5vh, 15px); /* Aumentado los valores del gap */
+  margin-top: clamp(15px, 4vh, 25px);
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: clamp(8px, 2vh, 12px); /* Aumentado el padding */
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  transition: background-color 0.2s;
+  font-size: clamp(14px, 1.8vh, 18px); /* Aumentado tamaño de fuente */
+}
+
+.sidebar .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+}
+
+.sidebar a:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(182, 85, 20, 0.3) 0%,
+    rgba(107, 43, 158, 0.3) 100%
+  );
+  backdrop-filter: blur(5px);
+}
+
+/* Botón para colapsar la barra lateral */
+.toggle-button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: auto;
+  transition: transform 0.2s;
+  margin-top: 50px;
+}
+
+.toggle-button:hover {
+  transform: scale(1.1);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px; /* Siempre mostrar versión reducida en móvil */
+    padding: 15px 10px;
+    top: 80px;
+    min-height: calc(100vh - 80px);
+  }
+
+  .sidebar-links {
+    margin-top: 15px;
+    gap: 8px;
+  }
+
+  .sidebar a {
+    padding: 8px;
+    justify-content: center;
+  }
+
+  .sidebar a span:not(.icon) {
+    display: none; /* Ocultar texto en móvil */
+  }
+
+  .sidebar .icon {
+    margin: 0;
+    font-size: 1.2em;
+  }
+
+  .toggle-button {
+    display: none; /* Ocultar botón de toggle en móvil */
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 50px;
+    padding: 10px 8px;
+    top: 70px;
+    min-height: calc(100vh - 70px);
+  }
+
+  .sidebar-links {
+    margin-top: 10px;
+    gap: 6px;
+  }
+
+  .sidebar a {
+    padding: 6px;
+  }
+
+  .sidebar .icon {
+    font-size: 1.1em;
+  }
+}
+
+@media (max-height: 600px) {
+  .sidebar-links {
+    gap: 6px;
+  }
+
+  .sidebar a {
+    padding: 6px;
+  }
+
+  .sidebar .icon {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-height: 500px) {
+  .sidebar a {
+    padding: 5px;
+  }
+
+  .sidebar .icon {
+    font-size: 1.1em;
+  }
+}
+
+.sidebar.collapsed .sidebar-links {
+  align-items: center; /* Centra los íconos en la barra lateral */
+}
+
+.sidebar.collapsed .sidebar-item {
+  justify-content: center; /* Centra los íconos dentro del botón */
+  display: flex;
+}
+
+.sidebar.collapsed .icon {
+  justify-content: center;
+  width: 100%; /* Hace que el ícono ocupe todo el ancho disponible */
+}

@@ -1,0 +1,143 @@
+.carrito-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.carrito-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.carrito-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.carrito-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s;
+}
+
+.carrito-item:hover {
+  transform: translateY(-5px);
+}
+
+.carrito-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.carrito-info {
+  flex: 1;
+}
+
+.carrito-controles {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.cantidad-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.cantidad-btn:hover {
+  color: var(--secondary-color);
+}
+
+.eliminar-btn {
+  background: var(--error-color);
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.eliminar-btn:hover {
+  background: #c0392b;
+}
+
+.carrito-total {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .carrito-container {
+    padding: 15px;
+    max-width: 95%;
+  }
+
+  .carrito-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .carrito-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .carrito-title {
+    font-size: 1.8em;
+  }
+
+  .carrito-total {
+    font-size: 1.3em;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .carrito-container {
+    padding: 10px;
+  }
+
+  .carrito-title {
+    font-size: 1.6em;
+  }
+
+  .carrito-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .carrito-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .carrito-controles {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .carrito-total {
+    font-size: 1.2em;
+  }
+}

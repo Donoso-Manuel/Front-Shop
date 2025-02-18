@@ -1,0 +1,116 @@
+.home {
+  min-height: 100vh;
+}
+
+.main-content {
+  padding: 40px 20px;
+}
+
+.featured-title,
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2em;
+  color: var(--text-color);
+}
+
+.productos-section {
+  padding: 40px 20px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.pagination-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 15px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: var(--primary-color);
+}
+
+.pagination-btn.active {
+  background: var(--primary-color);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 30px 15px;
+  }
+
+  .featured-title,
+  .section-title {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+
+  .productos-grid {
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .pagination {
+    gap: 8px;
+    margin-top: 30px;
+    padding: 15px;
+  }
+
+  .pagination-btn {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 20px 10px;
+  }
+
+  .featured-title,
+  .section-title {
+    font-size: 1.6em;
+    margin-bottom: 25px;
+  }
+
+  .productos-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 10px;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .pagination-btn {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}

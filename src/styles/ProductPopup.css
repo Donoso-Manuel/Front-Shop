@@ -1,0 +1,45 @@
+.carrito-controles {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cantidad-btn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cantidad-btn:hover {
+  background: #f5f5f5;
+}
+
+.carrito-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.carrito-btn.small {
+  padding: 0.5rem;
+  background: #dc3545;
+}
+
+.carrito-btn:hover {
+  opacity: 0.9;
+}
+
+.cantidad {
+  min-width: 2rem;
+  text-align: center;
+}

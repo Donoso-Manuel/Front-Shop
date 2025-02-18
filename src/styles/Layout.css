@@ -1,0 +1,38 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-container {
+  margin-left: 200px;
+  padding: 20px;
+  margin-top: 100px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.main-container.collapsed {
+  margin-left: 60px;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    margin-left: 80px;
+    margin-top: 80px;
+  }
+
+  .main-container.collapsed {
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-container {
+    margin-left: 0;
+    margin-top: 60px;
+  }
+
+  .main-container.collapsed {
+    margin-left: 0;
+  }
+}
