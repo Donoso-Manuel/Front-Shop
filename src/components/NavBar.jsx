@@ -160,7 +160,7 @@ function NavBar() {
         }
   
         console.log("Cerrando sesión...");
-        const response = await axios.post("/api/logout");
+        const response = await axios.post("/api/logout",{}, { withCredentials: true });
         console.log("Respuesta del logout:", response.data);
   
         localStorage.clear();
