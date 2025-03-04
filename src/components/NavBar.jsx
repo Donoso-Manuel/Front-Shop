@@ -167,7 +167,7 @@ function NavBar() {
         localStorage.clear();
         setIsAuthenticated(false);
         setUserRole(null);
-        setCarrito({});
+        //setCarrito({});
         navigate("/home");
       } else {
         console.log("No hay sesión activa.");

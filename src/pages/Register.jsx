@@ -32,7 +32,7 @@ function Register() {
 
     try {
       const response = await axios.post("/api/users", formData, {
-        withCredentials: true, //Asegura que las cookies del token se almacenen
+        withCredentials: true, 
       });
 
       const userData = response.data.data;
