@@ -160,13 +160,14 @@ function NavBar() {
         }
   
         console.log("Cerrando sesión...");
+
+
         const response = await axios.post("/api/logout");
-        console.log("Respuesta del logout:", response.data);
-        
         document.cookie = "userToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
         localStorage.clear();
         setIsAuthenticated(false);
         setUserRole(null);
+        console.log("Respuesta del logout:", response.data);
         navigate("/home");
       } else {
         console.log("No hay sesión activa.");
