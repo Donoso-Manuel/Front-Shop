@@ -25,7 +25,7 @@ function NavBar() {
   const navigate = useNavigate();
   const { userRole, isAuthenticated, setUserRole, setIsAuthenticated } =
     useAuth();
-  const { carrito } = useCart();
+  const { carrito, setCarrito } = useCart();
   const [searchQuery, setSearchQuery] = useState(() => {
     return localStorage.getItem("searchQuery") || "";
   });
