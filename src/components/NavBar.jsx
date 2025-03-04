@@ -165,8 +165,10 @@ function NavBar() {
   
         document.cookie = "userToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
         localStorage.clear();
+        localStorage.removeItem('carrito');
         setIsAuthenticated(false);
         setUserRole(null);
+        setCarrito({});
         navigate("/home");
       } else {
         console.log("No hay sesión activa.");
