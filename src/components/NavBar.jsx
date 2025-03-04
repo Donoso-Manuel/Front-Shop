@@ -124,117 +124,59 @@ function NavBar() {
   const handleLogout = async () => {
     try {
       console.log("Iniciando proceso de logout");
-      console.log("Estado de autenticación:", isAuthenticated);
-      console.log("Carrito actual:", carrito);
-
-      if (isAuthenticated && Object.keys(carrito).length > 0) {
-        try {
-          console.log("Verificando autenticación...");
-          const authCheck = await axios.get("/api/auth/verify", {
-            withCredentials: true,
-          });
-          console.log("Respuesta de verificación:", authCheck.data);
-
-          if (!authCheck.data.authenticated) {
-            throw new Error("Usuario no autenticado");
-          }
-
-          const productosParaGuardar = {
-            productos: Object.values(carrito).map((producto) => {
-              console.log("Procesando producto:", producto);
-
-              const id = Math.floor(Math.abs(Number(producto.id)));
-              const cantidad = Math.floor(Math.abs(Number(producto.cantidad)));
-              const precio = Math.floor(Number(producto.precio) * 1);
-
-              if (
-                isNaN(id) ||
-                isNaN(cantidad) ||
-                isNaN(precio) ||
-                id <= 0 ||
-                cantidad <= 0 ||
-                precio <= 0
-              ) {
-                console.error("Valores inválidos detectados:", {
-                  id,
-                  cantidad,
-                  precio,
-                });
-                throw new Error("Valores inválidos en el carrito");
-              }
-
-              const productoFormateado = {
-                id_product: id,
-                amount: cantidad,
-                price: precio,
-                id_cart: producto.id_cart || null,
-              };
-
-              console.log("Producto formateado:", productoFormateado);
-              return productoFormateado;
-            }),
-          };
-
-          console.log(
-            "Datos a enviar al backend:",
-            JSON.stringify(productosParaGuardar, null, 2)
-          );
-
-          const saveResponse = await axios.post(
-            "/api/carrito-saved",
-            productosParaGuardar,
-            {
-              withCredentials: true,
-              headers: {
-                "Content-Type": "application/json",
-              },
+  
+      if (isAuthenticated) {
+        // Verificar si el carrito tiene productos antes de guardar
+        if (Object.keys(carrito).length > 0) {
+          try {
+            console.log("Guardando carrito...");
+  
+            const productosParaGuardar = {
+              productos: Object.values(carrito).map((producto) => {
+                const id = Math.floor(Math.abs(Number(producto.id)));
+                const cantidad = Math.floor(Math.abs(Number(producto.cantidad)));
+                const precio = Math.floor(Number(producto.precio) * 1);
+                
+                if (isNaN(id) || isNaN(cantidad) || isNaN(precio) || id <= 0 || cantidad <= 0 || precio <= 0) {
+                  throw new Error("Valores inválidos en el carrito");
+                }
+                
+                return { id_product: id, amount: cantidad, price: precio, id_cart: producto.id_cart || null };
+              }),
+            };
+  
+            // Guardar carrito si tiene productos
+            if (productosParaGuardar.productos.length > 0) {
+              const saveResponse = await axios.post("/api/carrito-saved", productosParaGuardar, { 
+                withCredentials: true, 
+                headers: { "Content-Type": "application/json" },
+              });
+              console.log("Respuesta del guardado:", saveResponse.data);
             }
-          );
-
-          console.log("Respuesta del guardado:", saveResponse.data);
-        } catch (cartError) {
-          console.error("Error detallado al guardar carrito:", {
-            mensaje: cartError.message,
-            respuesta: cartError.response?.data,
-            status: cartError.response?.status,
-            headers: cartError.response?.headers,
-            config: cartError.config,
-            usuario: isAuthenticated ? "autenticado" : "no autenticado",
-          });
-
-          alert(
-            "No se pudo guardar el carrito. Los productos se perderán al cerrar sesión."
-          );
+          } catch (cartError) {
+            console.error("Error al guardar el carrito:", cartError);
+            alert("No se pudo guardar el carrito. Los productos se perderán al cerrar sesión.");
+          }
         }
-      }
-
-      console.log("Procediendo con el logout...");
-      const response = await axios.post("/api/logout");
-      console.log("Respuesta del logout:", response.data);
-
-      document.cookie = "userToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-      
-      if (response.status === 200) {
+  
+        console.log("Cerrando sesión...");
+        const response = await axios.post("/api/logout");
+        console.log("Respuesta del logout:", response.data);
+  
+        document.cookie = "userToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
         localStorage.clear();
         setIsAuthenticated(false);
         setUserRole(null);
         navigate("/home");
+      } else {
+        console.log("No hay sesión activa.");
       }
     } catch (error) {
-      console.error("Error completo en el proceso de logout:", error);
-      console.error("Detalles adicionales:", {
-        mensaje: error.message,
-        respuesta: error.response?.data,
-        status: error.response?.status,
-        headers: error.response?.headers,
-        config: error.config,
-      });
-      alert(
-        "Error al cerrar sesión. " +
-          (error.response?.data?.message || "Por favor, intenta nuevamente.")
-      );
+      console.error("Error en el proceso de logout:", error);
+      alert("Error al cerrar sesión. Intenta nuevamente.");
     }
   };
+  
 
   const isCategoryPage = currentPath.includes("/categoria/");
 
