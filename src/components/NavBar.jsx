@@ -163,6 +163,7 @@ function NavBar() {
 
 
         const response = await axios.post("/api/logout");
+        console.log(response)
         document.cookie = "userToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
         localStorage.clear();
         setIsAuthenticated(false);
