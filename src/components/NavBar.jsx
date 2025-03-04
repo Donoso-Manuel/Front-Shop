@@ -245,7 +245,7 @@ function NavBar() {
       }`}
     >
       <div className="nav-left">
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" className="logo" onClick={()=> navigate("/home")}/>
         <div className="search-bar">
           <input
             type="text"

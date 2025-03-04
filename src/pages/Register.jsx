@@ -66,7 +66,7 @@ function Register() {
   return (
     <div className="auth-container">
       <div className="logoclass">
-        <img src={logo} alt="Logoclass" className="imglog" />
+        <img src={logo} alt="Logoclass" className="imglog" onClick={()=> navigate("/home")}/>
       </div>
 
       <div className="auth-form-container">

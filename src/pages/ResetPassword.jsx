@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import axios from "../config/axios";
 import "../styles/Auth.css";
 import logo from "../assets/logo.png";
+import {useNavigate} from "react-router-dom"
 
 function ResetPassword() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const useNavigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ function ResetPassword() {
   return (
     <div className="auth-container">
       <div className="logoclass">
-        <img src={logo} alt="logoclass" className="imglog" />
+        <img src={logo} alt="logoclass" className="imglog" onClick={()=> navigate("/home")}/>
       </div>
 
       <div className="auth-form-container">
