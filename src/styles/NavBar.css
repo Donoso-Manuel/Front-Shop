@@ -251,7 +251,7 @@
   }
 
   .nav-links {
-    display: none;
+    right: -100%; 
   }
 
   .nav-header.scrolled .nav-button {
