@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import Cookies from 'js-cookie';
 import axios from "../config/axios"; // o la forma en que estés manejando tus peticiones
 
 const AuthContext = createContext();
@@ -42,6 +43,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = () => {
+    Cookies.remove('userToken')
     setIsAuthenticated(false);
     setUserRole(null);
   };
