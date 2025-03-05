@@ -16,6 +16,7 @@ const UserManagement = () => {
       .then((response) => {
         if (Array.isArray(response.data)) {
           setUsers(response.data);
+          console.log(users)
         } else {
           setUsers([]);
         }
