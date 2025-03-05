@@ -191,7 +191,9 @@ function NavBar() {
     >
       <div className="nav-left">
         <img src={logo} alt="Logo" className="logo" onClick={()=> navigate("/home")}/>
+{(location.pathname === "/home" || location.pathname === "/") && ( 
         <div className="search-bar">
+
   <input
     type="text"
     placeholder="Buscar productos..."
@@ -200,16 +202,16 @@ function NavBar() {
     onKeyDown={handleSearchKeyDown}
     className="search-input"
   />
-  {/* Mostrar el botón solo cuando estamos en el home o página principal */}
-  {(location.pathname === "/home" || location.pathname === "/") && (
+
     <button className="search-button" onClick={handleSearch}>
       <span className="icon">
         <FontAwesomeIcon icon={faSearch} />
       </span>
       <span>Buscar</span>
     </button>
+    </div>
   )}
-</div>
+
       </div>
 
       <button
