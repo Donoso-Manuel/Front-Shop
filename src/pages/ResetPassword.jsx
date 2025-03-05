@@ -17,8 +17,7 @@ function ResetPassword() {
     try {
       // Realizar la solicitud POST al backend
 
-      const response = await axios.post(
-        "http://localhost:3000/api/reset-password",
+      const response = await axios.post("/api/reset-password",
         { email }
       );
 
