@@ -22,7 +22,6 @@ function Sidebar({ collapsed, setCollapsed }) {
         <Link
           to="/home"
           onClick={(e) => {
-            // onCategorySelect("tienda");
           }}
           className="sidebar-item"
         >
@@ -37,7 +36,6 @@ function Sidebar({ collapsed, setCollapsed }) {
             to={`/categoria/${categoria.nombre
               .toLowerCase()
               .replace(/\s+/g, "-")}`}
-            // onClick={() => onCategorySelect(categoria.id)}
             className="sidebar-item"
           >
             <span className="icon">
@@ -62,7 +60,6 @@ function Sidebar({ collapsed, setCollapsed }) {
 Sidebar.propTypes = {
   collapsed: PropTypes.bool.isRequired,
   setCollapsed: PropTypes.func.isRequired,
-  // onCategorySelect: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

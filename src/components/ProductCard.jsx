@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
 import PropTypes from "prop-types";
 import axios from "../config/axios";

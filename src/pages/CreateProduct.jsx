@@ -23,7 +23,7 @@ const CreateProduct = () => {
 
   const categories = [
     "PCs",
-    "CPUs",
+    "Componentes",
     "Monitores",
     "Perifericos",
     "Audio",
@@ -56,11 +56,6 @@ const CreateProduct = () => {
       setError("Error al cargar el producto");
       console.error("Error:", error);
     }
-  };
-
-  const formatPrice = (value) => {
-    const numbers = value.replace(/[^\d]/g, "");
-    return numbers ? `$${numbers}` : "";
   };
 
   const handleChange = (e) => {
