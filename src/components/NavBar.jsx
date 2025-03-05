@@ -191,25 +191,24 @@ function NavBar() {
       <div className="nav-left">
         <img src={logo} alt="Logo" className="logo" onClick={()=> navigate("/home")}/>
         <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Buscar productos..."
-            value={searchQuery}
-            onChange={handleSearchChange}
-            onKeyDown={handleSearchKeyDown}
-            className="search-input"
-          />
-          {!isCategoryPage &&
-            currentPath !== "/home" &&
-            currentPath !== "/" && (
-              <button className="search-button" onClick={handleSearch}>
-                <span className="icon">
-                  <FontAwesomeIcon icon={faSearch} />
-                </span>
-                <span>Buscar</span>
-              </button>
-            )}
-        </div>
+  <input
+    type="text"
+    placeholder="Buscar productos..."
+    value={searchQuery}
+    onChange={handleSearchChange}
+    onKeyDown={handleSearchKeyDown}
+    className="search-input"
+  />
+  {/* Mostrar el botón solo cuando estamos en el home o página principal */}
+  {(currentPath === "/home" || currentPath === "/") && (
+    <button className="search-button" onClick={handleSearch}>
+      <span className="icon">
+        <FontAwesomeIcon icon={faSearch} />
+      </span>
+      <span>Buscar</span>
+    </button>
+  )}
+</div>
       </div>
 
       <button
