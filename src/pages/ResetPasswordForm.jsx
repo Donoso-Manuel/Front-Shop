@@ -35,8 +35,7 @@ const ResetPasswordForm = () => {
     }
 
     try {
-      const response = await axios.post(
-        `http://localhost:3000/api/reset-password/${token}`,
+      const response = await axios.post(`/api/reset-password/${token}`,
         { newPassword }
       );
       setSuccess(response.data.message);
