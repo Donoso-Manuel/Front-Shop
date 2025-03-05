@@ -81,7 +81,7 @@ const UserManagement = () => {
                   <td>{user.id}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
-                  <td>${user.total_compras ? user.total_compras.toLocaleString("es-CL") : "0"}</td>
+                  <td>${Number(user.total_compras).toLocaleString("es-CL") || "0"}</td>
                   <td>{user.ultima_compra ? new Date(user.ultima_compra).toLocaleDateString("es-CL"):"No disponible"}</td>
                   <td className={user.status ? "active" : "inactive"}>
                     {user.status ? "Activo" : "Inactivo"}
