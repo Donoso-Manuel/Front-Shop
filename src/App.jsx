@@ -66,10 +66,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/reset-password" element={<ResetPassword />} />
-              <Route
-                path="/reset-password/:token"
-                element={<ResetPasswordForm />}
-              />
+              <Route path="/reset-password/:token" element={<ResetPasswordForm />}/>
               {/* Rutas privadas */}
               <Route
                 path="/perfil"

@@ -9,7 +9,7 @@ function ResetPassword() {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
-  const useNavigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
