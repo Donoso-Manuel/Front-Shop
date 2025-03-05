@@ -29,7 +29,7 @@ const UserManagement = () => {
   const toggleActiveStatus = async (id, currentStatus) => {
     try {
       const updatedUser = { status: !currentStatus };
-
+      console.log(updatedUser)
       await axios.patch(`/api/userState/${id}`, updatedUser);
 
       setUsers((prevUsers) =>
