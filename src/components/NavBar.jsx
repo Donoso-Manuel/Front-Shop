@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "../config/axios";
 import "../styles/NavBar.css";
 import logo from "../assets/logo.png";
@@ -30,6 +30,7 @@ function NavBar() {
     return localStorage.getItem("searchQuery") || "";
   });
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -51,7 +52,7 @@ function NavBar() {
       });
       window.dispatchEvent(searchEvent);
     }
-  }, [searchQuery, currentPath]);
+  }, [searchQuery, location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -200,7 +201,7 @@ function NavBar() {
     className="search-input"
   />
   {/* Mostrar el botón solo cuando estamos en el home o página principal */}
-  {(currentPath === "/home" || currentPath === "/") && (
+  {(location.pathname === "/home" || location.pathname === "/") && (
     <button className="search-button" onClick={handleSearch}>
       <span className="icon">
         <FontAwesomeIcon icon={faSearch} />
