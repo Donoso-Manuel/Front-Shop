@@ -202,13 +202,6 @@ function NavBar() {
     onKeyDown={handleSearchKeyDown}
     className="search-input"
   />
-
-    <button className="search-button" onClick={handleSearch}>
-      <span className="icon">
-        <FontAwesomeIcon icon={faSearch} />
-      </span>
-      <span>Buscar</span>
-    </button>
     </div>
   )}
 
