@@ -88,7 +88,7 @@ const UserManagement = () => {
                   <td>
                     <button
                       className="toggle-btn"
-                      onClick={() => toggleActiveStatus(user.id, user.active)}
+                      onClick={() => toggleActiveStatus(user.id, user.status)}
                     >
                       {user.status ? "Deshabilitar" : "Habilitar"}
                     </button>
