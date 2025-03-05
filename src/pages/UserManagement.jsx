@@ -80,8 +80,8 @@ const UserManagement = () => {
                   <td>{user.id}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
-                  <td>${user.investment?.toLocaleString() || "0"}</td>
-                  <td>{user.lastPurchase || "No disponible"}</td>
+                  <td>${user.total_compras || "0"}</td>
+                  <td>{user.ultima_compra || "No disponible"}</td>
                   <td className={user.status ? "active" : "inactive"}>
                     {user.status ? "Activo" : "Inactivo"}
                   </td>
