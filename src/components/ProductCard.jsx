@@ -2,7 +2,7 @@ import { useCart } from "../context/CartContext";
 import PropTypes from "prop-types";
 import axios from "../config/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   faCartPlus,
   faCartShopping,
