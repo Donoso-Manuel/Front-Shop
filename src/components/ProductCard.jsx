@@ -114,7 +114,7 @@ function ProductCard({ producto, carrito, onClick }) {
                     />
                   </button>
                   <span className="likes-count">
-                    {likedProducts.has(producto.id) ? 1 : 0}
+                    {likedProducts.has(producto.likes)}
                   </span>
                 </div>
               </div>
