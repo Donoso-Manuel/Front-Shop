@@ -19,11 +19,16 @@ function ProductCard({ producto, carrito, onClick }) {
   const { toggleCarrito, actualizarCantidad } = useCart();
   const { likedProducts, addLike, removeLike, loading } = useLikes();
   const { isAuthenticated, userRole } = useAuth();
+  const [likes, setLikes] = useState(producto.likes);
   const location = useLocation();
 
   const isMisComprasPage = location.pathname === "/mis-compras";
 
   if (loading) return <p>Cargando productos liked...</p>;
+
+  useEffect(() => {
+    setLikes(producto.likes);
+  }, [producto.likes]);
 
   const handleLike = (producto) => {
     if (!isAuthenticated || userRole !== "cliente") {
@@ -31,10 +36,20 @@ function ProductCard({ producto, carrito, onClick }) {
       return;
     }
 
-    if (likedProducts.has(producto.id)) {
-      removeLike(producto.id);
-    } else {
-      addLike(producto.id);
+    try {
+      let updatedLikes = likes;
+
+      if (likedProducts.has(producto.id)) {
+        removeLike(producto.id);
+        updatedLikes -= 1; 
+      } else {
+        addLike(producto.id);
+        updatedLikes += 1; 
+      }
+
+      setLikes(updatedLikes); 
+    } catch (error) {
+      console.error("Error al actualizar los likes:", error);
     }
   };
 
@@ -114,7 +129,7 @@ function ProductCard({ producto, carrito, onClick }) {
                     />
                   </button>
                   <span className="likes-count">
-                    {likedProducts.has(producto.likes)}
+                  {likes}
                   </span>
                 </div>
               </div>
