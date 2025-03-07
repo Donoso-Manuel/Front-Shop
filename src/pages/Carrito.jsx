@@ -39,8 +39,13 @@ function Carrito() {
   );
 
   const handleFinalizarCompra = () => {
-    finalizarCompra();
+    const resp = finalizarCompra();
+    if(resp.success === false){
+      console.log(resp)
+      navigate("/carrito")
+    }else{
     navigate("/mis-compras");
+  }
   };
 
   const handleEliminar = (productoId) => {
