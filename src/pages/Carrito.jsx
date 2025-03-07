@@ -40,7 +40,7 @@ function Carrito() {
 
   const handleFinalizarCompra = () => {
     const resp = finalizarCompra();
-    if(resp.success === false){
+    if(resp.status === 500){
       console.log(resp)
       navigate("/carrito")
     }else{
