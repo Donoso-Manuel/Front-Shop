@@ -40,7 +40,7 @@ function Carrito() {
 
   const handleFinalizarCompra = async() => {
     const resp = await finalizarCompra();
-    if(resp.status === 500){
+    if(!resp.success){
       console.log(resp)
       navigate("/carrito")
     }else{
