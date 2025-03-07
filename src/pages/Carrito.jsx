@@ -38,8 +38,8 @@ function Carrito() {
       producto.cantidad > 0
   );
 
-  const handleFinalizarCompra = () => {
-    const resp = finalizarCompra();
+  const handleFinalizarCompra = async() => {
+    const resp = await finalizarCompra();
     if(resp.status === 500){
       console.log(resp)
       navigate("/carrito")
