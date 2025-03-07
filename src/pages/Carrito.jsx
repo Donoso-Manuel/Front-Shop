@@ -41,7 +41,6 @@ function Carrito() {
   const handleFinalizarCompra = async() => {
     const resp = await finalizarCompra();
     if(!resp.success){
-      console.log(resp)
       navigate("/carrito")
     }else{
     navigate("/mis-compras");
